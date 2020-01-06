@@ -1,0 +1,41 @@
+<div class="content">
+  <h2>Todo List</h2>
+  <div class="write_todo">
+    <input type="text"
+    class="todo-input" 
+    placeholder="Wirte your Todo item"
+    [(ngModel)]="taskTitle"
+    >
+   <button (click)="todo()">Add Todo item</button>
+  </div>
+  
+  <div class="items">
+    <div class="todo-item" *ngFor="let task of tasks" @fadeIn>
+      <div class="todo-item-left">
+        <input type="checkbox" [(ngModel)]="task.completed">
+        <div  class="todo-item-label" [ngClass]="{is_done : task.completed}" >{{task.title}}</div>
+        <ng-template>
+          <input type="text" class="todo-item-edit" >
+        </ng-template>
+      </div>
+      <div class="remove-item" (click)="deleteTodo(task.id)">
+        &times;
+      </div>
+    </div>
+  </div>
+   
+  <div class="task-container">
+    <h2>your progress</h2>
+    <div class="remainingTasks">
+     <span class="starTasks">
+      {{remainingTasks()}} 
+     </span>
+      remaining  out of
+      <span class="endTasks">
+        {{inProgressTasks()}}  
+      </span>
+      tasks
+    </div>
+  </div>
+</div>
+
