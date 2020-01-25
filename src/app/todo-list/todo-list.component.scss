@@ -10,12 +10,12 @@
     text-transform: capitalize;
     &::after {
       content: "";
-      width: 111px;
+      width: 66px;
       height: 3px;
       background: #000;
       left: 50%;
       position: absolute;
-      bottom: -5px;
+      bottom: -8px;
       transform: translateX(-50%);
     }
     @media (max-width: 992px) {
@@ -114,6 +114,15 @@
     background-color: red;
     color: #fff;
   }
+  &:focus {
+    outline: none;
+  }
+  @media (max-width: 992px) {
+    height: 25px;
+    width: 25px;
+    font-size: 20px;
+    margin-top: -10px;
+  }
 }
 
 .todo-item-left {
@@ -192,4 +201,145 @@
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+.card {
+  margin: 30px 0;
+}
+.card::after {
+  clear: both;
+  display: block;
+  content: "";
+}
+.card .checkbox-container {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 40px 0px;
+}
+.card .circular-container {
+  background-color: #0067ff;
+}
+
+.input-title {
+  clear: both;
+  padding: 22px 0px 0px 0px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 300;
+}
+
+/* Styling Checkbox Starts */
+.checkbox-label {
+  display: block;
+  position: relative;
+  margin: auto;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 24px;
+  height: 18px;
+  width: 14px;
+  clear: both;
+}
+
+.checkbox-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-label .checkbox-custom {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 15px;
+  width: 15px;
+  background-color: transparent;
+  border-radius: 5px;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  border: 2px solid #000;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom {
+  background-color: #000;
+  border-radius: 5px;
+  -webkit-transform: rotate(0deg) scale(1);
+  -ms-transform: rotate(0deg) scale(1);
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+  border: 2px solid #000;
+}
+
+.checkbox-label .checkbox-custom::after {
+  position: absolute;
+  content: "";
+  left: 12px;
+  top: 12px;
+  height: 0px;
+  width: 0px;
+  border-radius: 5px;
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(0deg) scale(0);
+  -ms-transform: rotate(0deg) scale(0);
+  transform: rotate(0deg) scale(0);
+  opacity: 1;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+}
+
+.checkbox-label input:checked ~ .checkbox-custom::after {
+  -webkit-transform: rotate(45deg) scale(1);
+  -ms-transform: rotate(45deg) scale(1);
+  transform: rotate(45deg) scale(1);
+  opacity: 1;
+  left: 3px;
+  top: 0px;
+  width: 3px;
+  height: 7px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+/* For Ripple Effect */
+.checkbox-label .checkbox-custom::before {
+  position: absolute;
+  content: "";
+  left: 10px;
+  top: 10px;
+  width: 0px;
+  height: 0px;
+  border-radius: 5px;
+  border: 2px solid #ffffff;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+
+.checkbox-label input:checked ~ .checkbox-custom::before {
+  left: -3px;
+  top: -3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  -webkit-transform: scale(3);
+  -ms-transform: scale(3);
+  transform: scale(3);
+  opacity: 0;
+  z-index: 999;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
 }

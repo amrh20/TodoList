@@ -16,7 +16,12 @@
   <div class="items">
     <div class="todo-item" *ngFor="let task of tasks" @fadeIn>
       <div class="todo-item-left">
-        <input type="checkbox" [(ngModel)]="task.completed">
+        <div class="checkbox-container">
+          <label class="checkbox-label">
+              <input type="checkbox"  [(ngModel)]="task.completed">
+              <span class="checkbox-custom rectangular"></span>
+          </label>
+          </div>
         <div  class="todo-item-label" [ngClass]="{is_done : task.completed}" >{{task.title}}</div>
         <ng-template>
           <input type="text" class="todo-item-edit" >
@@ -38,8 +43,11 @@
       <span class="endTasks">
         {{inProgressTasks()}}  
       </span>
-      tasks
+      Tasks
     </div>
   </div>
 </div>
+
+
+
 
