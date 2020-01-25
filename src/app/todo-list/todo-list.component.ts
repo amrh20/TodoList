@@ -27,7 +27,7 @@ export class TodoListComponent implements OnInit {
   taskTitle:string;
   savedId:any;
   idTodo;
-  
+  myDate= Date.now();
   constructor() {
     let savedTasks= localStorage.getItem('tasksTodo');
     this.savedId=JSON.parse(localStorage.getItem('taskid'));
@@ -38,7 +38,7 @@ export class TodoListComponent implements OnInit {
     else  this.tasks=  [
       {
         'id': 0,
-        'title': 'Finish Angular Course',
+        'title': 'Listen To Amr Diab',
         'completed': false,
         'editing': false,
       }
@@ -99,5 +99,5 @@ export class TodoListComponent implements OnInit {
   saveId() {
     localStorage.setItem('taskid',JSON.stringify(this.idTodo))
   }
-  
+
 }
