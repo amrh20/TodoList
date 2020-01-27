@@ -99,5 +99,10 @@ export class TodoListComponent implements OnInit {
   saveId() {
     localStorage.setItem('taskid',JSON.stringify(this.idTodo))
   }
-
+  editTask(task: Todo): void {
+    task.editing= true
+  }
+  doneEdit (task : Todo): void {
+    task.editing= false
+  }
 }

@@ -159,6 +159,7 @@
   margin-left: 12px;
   font-weight: 600;
   text-transform: capitalize;
+  cursor: pointer;
   @media (max-width: 768px) {
     font-size: 16px;
     margin: 0;
@@ -185,10 +186,10 @@
 }
 
 .task-container {
-  padding: 10px 20px;
+  padding: 10px 20px 0 80px;
   font-size: 16px;
-  border-top: 1px solid lightgrey;
   margin-bottom: 14px;
+  border-left: 1px solid #d0d0c8;
   @media (max-width: 992px) {
     margin-top: 10px;
     h2 {
@@ -257,16 +258,16 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  height: 15px;
-  width: 15px;
+  height: 20px;
+  width: 20px;
   background-color: transparent;
   border-radius: 5px;
   transition: all 0.3s ease-out;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
   border: 2px solid #000;
+  @media (max-width: 992px) {
+    height: 15px;
+    width: 15px;
+  }
 }
 
 .checkbox-label input:checked ~ .checkbox-custom {
@@ -294,10 +295,6 @@
   transform: rotate(0deg) scale(0);
   opacity: 1;
   transition: all 0.3s ease-out;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
 }
 
 .checkbox-label input:checked ~ .checkbox-custom::after {
@@ -305,14 +302,20 @@
   -ms-transform: rotate(45deg) scale(1);
   transform: rotate(45deg) scale(1);
   opacity: 1;
-  left: 3px;
-  top: 0px;
-  width: 3px;
-  height: 7px;
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
   border: solid #fff;
   border-width: 0 2px 2px 0;
   background-color: transparent;
   border-radius: 0;
+  @media (max-width: 992px) {
+    left: 3px;
+    top: 0px;
+    width: 3px;
+    height: 7px;
+  }
 }
 
 /* For Ripple Effect */
@@ -342,8 +345,100 @@
   opacity: 0;
   z-index: 999;
   transition: all 0.3s ease-out;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
+}
+
+.check_all {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 18px;
+  margin-left: 20px;
+  .checkbox-label {
+    display: inline-block;
+  }
+  .checkbox-label .checkbox-custom {
+    border: 2px solid green;
+
+    @media (max-width: 992px) {
+      top: 3px
+    }
+  }
+  .checkbox-label input:checked ~ .checkbox-custom {
+    background-color: green;
+    border: 2px solid green;
+  }
+  .check_all-txt {
+    margin-left: 15px;
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: green;
+    @media (max-width: 992px) {
+      margin-left: 10px;
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 992px) {
+    margin-bottom: 13px;
+    margin-top: 10px;
+  }
+}
+
+
+.items_number {
+  display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    font-size: 18px;
+    border-bottom: 1px solid;
+    width: fit-content;
+    margin: 15px 20px 0 auto;
+    color: red;
+    h3 {
+      margin: 0;
+      padding-bottom: 5px;
+      span {
+        border: 1px solid red;
+    padding: 6px;
+    margin-right: 7px;
+      }
+    }
+    @media (max-width: 992px) {
+      font-size: 16px;
+    }
+}
+
+.footer {
+  display: flex;
+  border-top: 1px solid #d0d0c8;
+  justify-content: space-between;
+  padding: 20px;
+  .task_state {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    text-transform: capitalize;
+  }
+  @media (max-width: 992px) {
+    display: block;
+    font-size: 18px;
+    .task-container {
+      padding: 0;
+      border: 0;
+      margin-bottom: 10px;
+    }
+    .task_state {
+      width: 100%;
+      border-bottom: 1px solid #d0d0c8;
+      padding-bottom: 20px;
+    }
+  }
+}
+
+.todo-list-edit  {
+  margin-left: 20px;
+  padding: 10px 18px;
+  font-size: 16px;
+  border: 1px solid #d0d0c8;
+  border-radius: 5px;
 }
