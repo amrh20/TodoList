@@ -30,7 +30,9 @@
         *ngIf="!task.editing; else editingTask"
         class="todo-item-label" 
         [ngClass]="{is_done : task.completed}" 
-        >{{task.title}}</div>
+        >{{task.title}}
+         <img src="../../assets/Blow-Kiss.png" alt="">
+      </div>
         <ng-template #editingTask>
           <input type="text" class="todo-list-edit" 
           [(ngModel)]="task.title"
