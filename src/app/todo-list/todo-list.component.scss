@@ -82,7 +82,11 @@
   .items {
     margin-top: 20px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 350px) {
+    width: 95%;
+    margin: 0 auto;
+  }
+  @media (max-width: 768px) and (min-width: 351px){
     width: 90%;
     margin: 0 auto;
   }
