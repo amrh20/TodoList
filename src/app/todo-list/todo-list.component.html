@@ -30,15 +30,11 @@
         *ngIf="!task.editing; else editingTask"
         class="todo-item-label" 
         [ngClass]="{is_done : task.completed}" 
-        (dblclick)="editTask(task)"
         >{{task.title}}</div>
         <ng-template #editingTask>
           <input type="text" class="todo-list-edit" 
           [(ngModel)]="task.title"
-          (blur)="doneEdit(task)"
-          (keyup.enter)="doneEdit(task)"
-          (keyup.esc)="cancelEdit(task)"
-          autofocus>
+          >
         </ng-template>
         
         <ng-template>
