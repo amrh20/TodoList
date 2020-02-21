@@ -39,7 +39,7 @@ export class TodoListComponent implements OnInit {
     else  this.tasks=  [
       {
         'id': 0,
-        'title': 'I love you ya batal albi',
+        'title': 'courses',
         'completed': false,
         'editing': false,
       }
