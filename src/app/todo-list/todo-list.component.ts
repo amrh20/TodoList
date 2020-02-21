@@ -27,6 +27,7 @@ export class TodoListComponent implements OnInit {
   taskTitle:string;
   savedId:any;
   idTodo;
+  beforeEditCashe: string;
   myDate= Date.now();
   constructor() {
     let savedTasks= localStorage.getItem('tasksTodo');
@@ -38,7 +39,7 @@ export class TodoListComponent implements OnInit {
     else  this.tasks=  [
       {
         'id': 0,
-        'title': 'Listen To Amr Diab',
+        'title': 'Courses',
         'completed': false,
         'editing': false,
       }
@@ -46,6 +47,7 @@ export class TodoListComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.beforeEditCashe='';
     if (this.savedId== null) {
       this.idTodo= 1
     }
@@ -100,9 +102,17 @@ export class TodoListComponent implements OnInit {
     localStorage.setItem('taskid',JSON.stringify(this.idTodo))
   }
   editTask(task: Todo): void {
+    this.beforeEditCashe= task.title
     task.editing= true
   }
   doneEdit (task : Todo): void {
+    if(task.title.trim().length===0) {
+      task.title= this.beforeEditCashe
+   }
+    task.editing= false
+  }
+  cancelEdit (task : Todo): void {
+    task.title= this.beforeEditCashe   
     task.editing= false
   }
 }

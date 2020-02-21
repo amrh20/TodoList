@@ -14,9 +14,9 @@
   </div>
   
   <!--  -->
-  <div class="items_number">
+  <!-- <div class="items_number">
     <h3><span>4</span>tasks left</h3>
-  </div>
+  </div> -->
   <div class="items">
     <div class="todo-item" *ngFor="let task of tasks" @fadeIn>
       <div class="todo-item-left">
@@ -37,6 +37,7 @@
           [(ngModel)]="task.title"
           (blur)="doneEdit(task)"
           (keyup.enter)="doneEdit(task)"
+          (keyup.esc)="cancelEdit(task)"
           autofocus>
         </ng-template>
         
@@ -51,7 +52,7 @@
   </div>
    
 <!-- check all -->
-<div class="check_all">
+<!-- <div class="check_all">
   <div class="checkbox-container">
     <label class="checkbox-label">
         <input type="checkbox" >
@@ -59,37 +60,24 @@
     </label>
     <span class="check_all-txt">check all</span>
     </div>
-  <!-- clear all -->
-  <!-- <div class="clearAll">
-    <span>clear all completed</span>
-  </div> -->
     <div>
       
     </div>
+</div> -->
+<div class="task-container">
+  <h2>your progress</h2>
+  <div class="remainingTasks">
+   <span class="starTasks">
+    {{remainingTasks()}} 
+   </span>
+    remaining  out of
+    <span class="endTasks">
+      {{inProgressTasks()}}  
+    </span>
+    Tasks
+  </div>
 </div>
 
-<div class="footer">
-  <div class="task_state">
-    <div>active</div>
-    <div>completed</div>
-    <div>all</div>
-</div>
-    <div class="task-container">
-      <h2>your progress</h2>
-      <div class="remainingTasks">
-       <span class="starTasks">
-        {{remainingTasks()}} 
-       </span>
-        remaining  out of
-        <span class="endTasks">
-          {{inProgressTasks()}}  
-        </span>
-        Tasks
-      </div>
-    </div>
-  
-
-</div>
  
 </div>
 
